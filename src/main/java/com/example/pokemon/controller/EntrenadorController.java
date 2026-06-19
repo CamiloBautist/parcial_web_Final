@@ -93,4 +93,19 @@ public class EntrenadorController {
                     .body(new ErrorResponse("true", ex.getReason()));
         }
     }
+
+    @Autowired
+    private com.example.pokemon.service.EntrenadorService entrenadorService;
+
+    @Operation(summary = "Obtener el UUID de un usuario/entrenador mediante su ID interno")
+    @GetMapping("/entrenador/{id}/uuid")
+    public ResponseEntity<?> obtenerUuidPorId(@PathVariable Integer id) {
+        try {
+            String uuid = entrenadorService.obtenerUuidPorId(id);
+            return ResponseEntity.ok(new com.example.pokemon.dto.UuidResponseDTO(uuid));
+        } catch (org.springframework.web.server.ResponseStatusException ex) {
+            return ResponseEntity.status(ex.getStatusCode())
+                    .body(new ErrorResponse("true", ex.getReason()));
+        }
+    }
 }
