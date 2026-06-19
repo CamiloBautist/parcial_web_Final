@@ -77,4 +77,18 @@ public class EntrenadorController {
     public List<Pokemon> obtenerPokemons() {
         return pokemonRepository.findAll();
     }
+
+    @Operation(summary = "Listar los Pokémon de un entrenador",
+               description = "Retorna la lista de Pokémon asociados a un entrenador identificado por su UUID.")
+    @GetMapping("/entrenador/{entrenadorUuid}/pokemons")
+    public ResponseEntity<?> listarPokemonsDeEntrenador(@PathVariable String entrenadorUuid) {
+        Optional<Entrenador> entrenadorOpt = entrenadorRepository.findByUuid(entrenadorUuid);
+        if (entrenadorOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorResponse("true", "Entrenador con UUID " + entrenadorUuid + " no encontrado"));
+        }
+
+        Entrenador entrenador = entrenadorOpt.get();
+        return ResponseEntity.ok(entrenador.getPokemons());
+    }
 }
