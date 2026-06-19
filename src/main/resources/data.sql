@@ -3,10 +3,10 @@ INSERT INTO pueblo (nombre) VALUES ('Pueblo Paleta');
 INSERT INTO pueblo (nombre) VALUES ('Ciudad Celeste');
 
 -- Insert Pokemon Types (TipoPokemon)
-INSERT INTO tipo_pokemon (nombre, descripcion, uuid) VALUES ('Eléctrico', 'Pokémon de tipo eléctrico', 'a1b2c3d4-e5f6-7890-abcd-ef1234567801');
-INSERT INTO tipo_pokemon (nombre, descripcion, uuid) VALUES ('Fuego', 'Pokémon de tipo fuego', 'a1b2c3d4-e5f6-7890-abcd-ef1234567802');
-INSERT INTO tipo_pokemon (nombre, descripcion, uuid) VALUES ('Agua', 'Pokémon de tipo agua', 'a1b2c3d4-e5f6-7890-abcd-ef1234567803');
-INSERT INTO tipo_pokemon (nombre, descripcion, uuid) VALUES ('Planta', 'Pokémon de tipo planta', 'a1b2c3d4-e5f6-7890-abcd-ef1234567804');
+INSERT INTO tipo_pokemon (nombre) VALUES ('Eléctrico');
+INSERT INTO tipo_pokemon (nombre) VALUES ('Fuego');
+INSERT INTO tipo_pokemon (nombre) VALUES ('Agua');
+INSERT INTO tipo_pokemon (nombre) VALUES ('Planta');
 
 -- Insert Pokémon
 -- Pikachu: Eléctrico (tipo_pokemon = 1)
